@@ -1,23 +1,25 @@
 import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StatusBar } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 const _layout = () => {
+  const inset = useSafeAreaInsets();
   return (
-    <SafeAreaView style={{ flex: 1 }} edges={['top']}>
-      <StatusBar barStyle={'dark-content'} />
+    <View style={{flex: 1}}>
+      <StatusBar style='dark' />
       <Stack>
         <Stack.Screen
-          name='(tabs)'
+          name='(drawer)'
           options={{
-            title: 'Tabs',
+            title: 'Home',
             headerShown: false
           }}
         />
       </Stack>
-    </SafeAreaView>
+    </View>
   )
 }
 

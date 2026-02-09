@@ -1,17 +1,18 @@
 import { Ionicons } from '@expo/vector-icons';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { withLayoutContext } from 'expo-router';
-import CommonComponent from '../../components/CommonComponent';
 import { View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import CommonComponent from '../../../components/CommonComponent';
 
 const Tab = createMaterialTopTabNavigator();
 const MaterialTopTabs = withLayoutContext(Tab.Navigator);
 const _layout = () => {
+  const insets = useSafeAreaInsets();
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1}}>
       <CommonComponent/>
       <MaterialTopTabs
-        
         screenOptions={{
           swipeEnabled: true,
           tabBarIndicatorPosition: 'top',
@@ -36,7 +37,6 @@ const _layout = () => {
           tabBarShowIcon: true,
           tabBarActiveTintColor: '#0f4be3',
           tabBarInactiveTintColor: '#999',
-
         }}
         tabBarPosition='bottom'
       >
@@ -44,9 +44,10 @@ const _layout = () => {
           name="home"
           options={{
             title: 'Home',
+            
             tabBarIcon: ({ color, size }) => (
               <Ionicons name='home' color={color} size={18} />
-            )
+            ),
           }}
         />
         <MaterialTopTabs.Screen
