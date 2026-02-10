@@ -1,14 +1,13 @@
 import './App.css'
 
-import Dashboard from './screens/Dashboard.jsx'
+import Dashboard from '../src/app/Dashboard.jsx';
 
-function App() {
-
+const App = () => {
   return (
-    <>
+    <div>
       <Dashboard/>
-    </>
+    </div>
   )
 }
 
-export default App
+export default App;
